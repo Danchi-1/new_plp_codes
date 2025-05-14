@@ -1,0 +1,114 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-color);
+  transition: background 0.5s ease-in-out;
+}
+
+:root {
+  --bg-color: #f0f0f0;
+  --card-bg: #ffffff;
+  --text-color: #333;
+}
+
+body.dark {
+  --bg-color: #1e1e1e;
+  --card-bg: #2e2e2e;
+  --text-color: #eee;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card {
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  background: var(--card-bg);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  padding: 30px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.shine-button {
+    margin-left: 200px;
+  padding: 12px 24px;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+  background: royalblue;
+  color: white;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(65, 105, 225, 0.6),
+              0 0 24px rgba(65, 105, 225, 0.3);
+}
+
+/* SHINE EFFECT */
+.shine-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transform: skewX(-25deg);
+}
+
+.shine-button:hover::before {
+  left: 130%;
+  transition: left 0.75s ease-in-out;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transition, animation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="theme-toggle">
+    <button onclick="toggleTheme()">Toggle Theme</button>
+  </div>
+
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <h2>Hello, world</h2>
+        <p>Click me to see my secrets</p>
+      </div>
+      <div class="card-back">
+        <h2>See</h2>
+        <p>Nothing to see (*walks away with aura)</p>
+      </div>
+    </div>
+  </div>
+  <button class="shine-button">Hover Me</button>
+  <script src="script.js"></script>
+</body>
+</html>
